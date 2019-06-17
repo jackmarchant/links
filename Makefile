@@ -1,4 +1,4 @@
-.PHONY: test
+.PHONY: test mysql
 
 COMPOSE_PROJECT_NAME=app
 
@@ -36,3 +36,6 @@ logs:
 
 test:
 	docker exec $(COMPOSE_PROJECT_NAME) vendor/bin/phpunit
+
+mysql:
+	docker exec -it db bash
