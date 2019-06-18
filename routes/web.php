@@ -11,10 +11,8 @@
 |
 */
 
-use \App\User;
-
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/dashboard');
 });
 
 Route::get('/login', function () {
@@ -23,4 +21,8 @@ Route::get('/login', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::post('/links', 'LinksController@store')->name('links');
+
+Route::delete('/links/delete', 'LinksController@delete');
